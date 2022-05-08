@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>疫情ui</title>
+    <style>
+        .w {
+            background: -webkit-linear-gradient(left, white, #6fc1ff);
+            /*渐变色*/
+        }
+
+        .box {
+            position: relative;
+            margin: auto;
+            padding: 0;
+            width: 1180px;
+            height: 590px;
+            background: url("img/yiqing.jpeg");
+        }
+
+        p {
+            width: 10px;
+            position: absolute;
+            right: 500px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+        }
+
+        img {
+            position: absolute;
+            bottom: 1px;
+            left: 1px;
+            width: 350px;
+            height: 150px;
+        }
+
+        .links {
+            position: absolute;
+            top: 105px;
+            left: 260px;
+            height: 200px;
+            width: 250px;
+        }
+
+        button {
+            padding: 2px;
+            height: 45px;
+            width: 230px;
+            background: white;
+            border: none;
+            border-bottom: #3196e3 1px solid;
+            border-right: #3196e3 1px solid;
+            text-align: center; /*文字居中*/
+            line-height: 45px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #3196e3;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="w">
+    <div class="box">
+        <img src="img/tiaowu.gif">
+        <p>请选择您需要的统计图</p>
+        <div class="links">
+            <!--            <a href="../data/templates/中国疫情新增折线图.html" target="_blank">中国疫情新增折线图</a>-->
+            <!--            <a href="../data/templates/2月以来的国内疫情趋势.html" target="_blank">中国疫情近两月趋势</a>-->
+            <!--            <a href="../data/templates/中国疫情省份确诊占比图.html" target="_blank">中国疫情省份确诊占比图</a>-->
+            <!--            <a href="../data/templates/中国疫情词云图.html" target="_blank">中国疫情词云图</a>-->
+            <!--            <a href="../data/templates/疫情治愈率和死亡率柱状图.html" target="_blank">疫情治愈率和死亡率情况</a>-->
+            <button type="button" id="btn1">中国疫情新增折线图</button>
+            <button type="button" id="btn2">中国疫情近两月趋势</button>
+            <button type="button" id="btn3">中国疫情省份确诊占比图</button>
+            <button type="button" id="btn4">中国疫情词云图</button>
+            <button type="button" id="btn5">疫情治愈率和死亡率情况</button>
+
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    try {
+        //此处由于是本地文件，为了方便异常处理，用js语句绑定跳转
+        let btn1 = document.getElementById('btn1');
+        let btn2 = document.getElementById('btn2');
+        let btn3 = document.getElementById('btn3');
+        let btn4 = document.getElementById('btn4');
+        let btn5 = document.getElementById('btn5');
+        btn1.onclick = function () {
+            window.location.href = "../data/templates/中国疫情新增折线图.html";
+        }
+        btn2.onclick = function () {
+            window.location.href = "../data/templates/2月以来的国内疫情趋势.html";
+        }
+        btn3.onclick = function () {
+            window.location.href = "../data/templates/中国疫情省份确诊占比图.html";
+        }
+        btn4.onclick = function () {
+            window.location.href = "../data/templates/中国疫情词云图.html";
+        }
+        btn5.onclick = function () {
+            window.location.href = "../data/templates/疫情治愈率和死亡率柱状图.html";
+        }
+    } catch (e) {
+        console.log(e);
+        alert(e + "出错了！！");
+    } finally {
+        //排他算法，为了改变背景
+        var btns = document.getElementsByTagName('button')
+        //兼容的，获得了一个伪数组，每一个是btns[i]
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onmouseover = function () {
+                //先将所有按钮的背景颜色去掉
+                for (var i = 0; i < btns.length; i++) {
+                    btns[i].style.backgroundColor = ''
+                }
+                //点击改变颜色为粉色
+                this.style.backgroundColor = '#c3e0ff'
+
+            }
+            btns[i].onmouseout = function () {
+                this.style.backgroundColor = '';
+            }
+        }
+    }
+</script>
+</html>
